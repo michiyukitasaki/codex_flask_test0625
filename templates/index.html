@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Make a Reservation{% endblock %}
+{% block content %}
+<h1>Make a Reservation</h1>
+<form method="post" action="{{ url_for('reserve') }}">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input name="name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input name="email" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Date</label>
+    <input type="date" name="date" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Party Size</label>
+    <input type="number" name="party_size" class="form-control" value="1" min="1">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Notes</label>
+    <textarea name="notes" class="form-control"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Reserve</button>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Admin - Reservations{% endblock %}
+{% block content %}
+<h1>Admin - Reservations</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th><th>Name</th><th>Email</th><th>Date</th><th>Party</th><th>Notes</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in reservations %}
+    <tr>
+      <td>{{ r[0] }}</td>
+      <td>{{ r[1] }}</td>
+      <td>{{ r[2] }}</td>
+      <td>{{ r[3] }}</td>
+      <td>{{ r[4] }}</td>
+      <td>{{ r[5] }}</td>
+      <td>
+        <form method="post" action="{{ url_for('delete', res_id=r[0]) }}" style="display:inline;">
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
